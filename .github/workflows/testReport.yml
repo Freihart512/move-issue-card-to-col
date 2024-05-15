@@ -1,8 +1,8 @@
-name: build
+name: report test coverage
 on:
   push:
     branches:
-      - v1
+      - main
 jobs:
   coverage:
     name: coverage
