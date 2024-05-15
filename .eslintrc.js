@@ -4,7 +4,7 @@ module.exports = {
     commonjs: true,
     es2021: true,
   },
-  extends: ['standard', 'plugin:jsdoc/recommended'],
+  extends: ['eslint:recommended', 'plugin:n/recommended', 'plugin:jsdoc/recommended'],
   overrides: [
     {
       env: {
@@ -21,7 +21,7 @@ module.exports = {
     },
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
+    'ecmaVersion': 'latest'
   },
   plugins: ['jsdoc', 'jest'],
   rules: {

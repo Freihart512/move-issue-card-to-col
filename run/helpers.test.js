@@ -7,23 +7,6 @@ const {
   getTargetColFromProject,
 } = require('./helpers.js');
 
-// jest.mock('@actions/core', () => ({
-//   getInput: jest.fn().mockImplementation((inputName) => {
-//     switch (inputName) {
-//       case 'project_number':
-//         return 123;
-//       case 'user_name':
-//         return 'testUser';
-//       case 'target_col':
-//         return 'In Progress';
-//       case 'personal_token':
-//         return 'personal_token';
-//       default:
-//         return '';
-//     }
-//   }),
-// }));
-
 describe('validateInput function', () => {
   it('should throw an error for an empty string', () => {
     expect(() => {
