@@ -50,26 +50,6 @@ const issueInfo = {
   },
 };
 
-// jest.mock('@actions/core', () => ({
-//   getInput: jest.fn().mockImplementation((inputName) => {
-//     switch (inputName) {
-//       case 'project_number':
-//         return 123;
-//       case 'user_name':
-//         return 'testUser';
-//       case 'target_col':
-//         return 'In Progress';
-//       case 'personal_token':
-//         return 'personal_token';
-//       default:
-//         return '';
-//     }
-//   }),
-//   info: jest.fn((message) => console.log(message)),
-//   error: jest.fn((message) => console.log(message)),
-//   setFailed: jest.fn((message) => console.log(message)),
-// }));
-
 jest.mock('@actions/github', () => {
   return {
     context: {
@@ -86,7 +66,7 @@ jest.mock('octokit', () => {
     const mockFn = jest.fn();
     return {
       Octokit: class {
-        graphql = mockFn;
+         graphql = mockFn;
       },
       mockFn,
     };
@@ -95,9 +75,7 @@ jest.mock('octokit', () => {
 
 describe.only('run', () => {
   it('if project item was found change its status', async () => {
-    // getInfoFromIssue
     mockFn.mockImplementationOnce(() => issueInfo);
-    // moveItemToStatus
     mockFn.mockImplementationOnce(() => mutationResponse);
 
     await run();
@@ -108,9 +86,7 @@ describe.only('run', () => {
   });
 
   it('if project item was found change its status', async () => {
-    // getInfoFromIssue
     mockFn.mockImplementationOnce(() => issueInfo);
-    // moveItemToStatus
     mockFn.mockImplementationOnce(() => mutationResponse);
     const spyGetInput = jest.spyOn(core, 'getInput');
     spyGetInput.mockImplementation((inputName) => {
