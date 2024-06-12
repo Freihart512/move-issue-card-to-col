@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: "18"
       - run: npm install
-      - uses: paambaati/codeclimate-action@v6.0.0
+      - uses: paambaati/codeclimate-action@v8.0.0
         env:
           CC_TEST_REPORTER_ID: 2d4363722765fe814e1a0e42c57a38f974f3bf8b90540bfe8ec6b9c438487315
         with:
